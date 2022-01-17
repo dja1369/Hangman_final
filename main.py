@@ -23,6 +23,9 @@ end_game = False
 while not end_game:
     #입력을 대문자로 할수도 있으니 소문자로 전부 변환하여 입력 받는다
     chosen_user1 = input("글자를 입력하세요 : ").lower()
+    #입력받은 문자가 show_list에 이미 추가된 상태라면.
+    if chosen_user1 in show_list:
+        print(f"이미 맞춘 단어 입니다.{chosen_user1}")
     #선택된 단어의 길이만큼 반복
     for answer in range(word_length):
         #단어가 반복되는 동안 answer 를 chosen_word[]에 추가하여 word에 저장한다
@@ -36,6 +39,7 @@ while not end_game:
     #입력받은글이 컴퓨터가 선정한 글자에 존재하지 않는다면 목숨을 1개 깎고, 목숨이 0이 되면 False를 True로 바꾸어 while을 종료 시켜 끝낸다.
     if chosen_user1 not in chosen_word:
         user_life -= 1
+        print(f"틀린 철자 입니다! 남은 목숨은{user_life}입니다.")
         if user_life == 0:
             end_game = True
             print("정답을 맞추지 못했습니다 ㅠㅠ")
